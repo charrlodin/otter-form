@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  /* Neo-Brutalist / Google V.2 Palette */
+  --background: #fdfcf8;
+  /* Warm off-white */
+  --foreground: #1a1a1a;
+  /* Soft black */
+
+  --primary: #2d2d2d;
+  --primary-foreground: #ffffff;
+
+  --accent: #e8def8;
+  /* Soft purple/lavender */
+  --accent-foreground: #1d192b;
+
+  --surface: #ffffff;
+  --surface-foreground: #1a1a1a;
+
+  --border: #e0e0e0;
+
+  /* Font Variables mapped */
+  --font-heading: var(--font-syne);
+  --font-body: var(--font-outfit);
+}
+
+/* @theme inline removed in favor of tailwind.config.ts */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f0f0f;
+    --foreground: #e0e0e0;
+
+    --primary: #e0e0e0;
+    --primary-foreground: #0f0f0f;
+
+    --accent: #4a4458;
+    --accent-foreground: #e8def8;
+
+    --surface: #1c1c1c;
+    --surface-foreground: #e0e0e0;
+
+    --border: #333333;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-outfit), sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Subtle Gradient Mesh (Optional, can be enhanced in Shell) */
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(232, 222, 248, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
