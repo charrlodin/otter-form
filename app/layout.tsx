@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Outfit } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -34,6 +35,12 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${outfit.variable} antialiased`}
       >
+        <Script
+          defer
+          src="https://umami-three-wheat-87.vercel.app/script.js"
+          data-website-id="060b11f4-8f8a-4750-9fc1-6df744f1d672"
+          strategy="afterInteractive"
+        />
         <ClerkProvider dynamic>
           <ConvexClientProvider>{children}</ConvexClientProvider>
         </ClerkProvider>
