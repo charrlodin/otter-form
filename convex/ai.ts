@@ -2,7 +2,7 @@
 
 import { action } from "./_generated/server";
 import { v } from "convex/values";
-import { chatCompletion } from "./lib/llm";
+import { chatCompletion, LLMError } from "./lib/llm";
 import { FormSchema } from "./types";
 import { api } from "./_generated/api";
 
@@ -113,6 +113,9 @@ export const generateFormSchema = action({
             };
         } catch (error) {
             console.error("AI Generation Failed:", error);
+            if (error instanceof LLMError) {
+                throw new Error(error.userMessage);
+            }
             throw new Error("Failed to generate response. Please try again.");
         }
     },
