@@ -1,12 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 const steps = [
     {
         number: "01",
@@ -26,39 +19,9 @@ const steps = [
 ];
 
 export function HowItWorks() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const headingRef = useRef<HTMLDivElement>(null);
-    const stepsRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(
-        () => {
-            gsap.from(headingRef.current, {
-                y: 40,
-                opacity: 0,
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: headingRef.current,
-                    start: "top 80%",
-                },
-            });
-
-            gsap.from(".step-item", {
-                x: -60,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.2,
-                scrollTrigger: {
-                    trigger: stepsRef.current,
-                    start: "top 75%",
-                },
-            });
-        },
-        { scope: sectionRef }
-    );
-
     return (
-        <section ref={sectionRef} className="py-24 md:py-32 border-t border-black/5 dark:border-white/5">
-            <div ref={headingRef} className="mb-16">
+        <section className="py-24 md:py-32 border-t border-black/5 dark:border-white/5">
+            <div className="mb-16">
                 <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
                     How it works
                 </h2>
@@ -67,14 +30,14 @@ export function HowItWorks() {
                 </p>
             </div>
 
-            <div ref={stepsRef} className="space-y-8">
+            <div className="space-y-6">
                 {steps.map((step, index) => (
                     <div
                         key={index}
-                        className="step-item group flex flex-col md:flex-row gap-6 md:gap-12 p-8 rounded-2xl border border-black/5 dark:border-white/10 bg-white/30 dark:bg-black/30 backdrop-blur-sm hover:bg-white/50 dark:hover:bg-black/50 transition-all duration-300"
+                        className="group flex flex-col md:flex-row gap-6 md:gap-12 p-8 rounded-2xl border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300"
                     >
                         <div className="flex-shrink-0">
-                            <span className="font-heading text-5xl md:text-6xl font-bold text-black/10 dark:text-white/10 group-hover:text-black/20 dark:group-hover:text-white/20 transition-colors">
+                            <span className="font-heading text-5xl md:text-6xl font-bold text-black/20 dark:text-white/20 group-hover:text-black/40 dark:group-hover:text-white/40 transition-colors">
                                 {step.number}
                             </span>
                         </div>

@@ -1,38 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function CTA() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const contentRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(
-        () => {
-            gsap.from(contentRef.current, {
-                y: 60,
-                opacity: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: contentRef.current,
-                    start: "top 80%",
-                },
-            });
-        },
-        { scope: sectionRef }
-    );
-
     return (
-        <section ref={sectionRef} className="py-24 md:py-32 border-t border-black/5 dark:border-white/5">
-            <div
-                ref={contentRef}
-                className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-900 to-neutral-800 dark:from-neutral-100 dark:to-neutral-200 p-12 md:p-20 text-center"
-            >
+        <section className="py-24 md:py-32 border-t border-black/5 dark:border-white/5">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-900 to-neutral-800 dark:from-neutral-100 dark:to-neutral-200 p-12 md:p-20 text-center">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)] pointer-events-none" />
                 
                 <div className="relative z-10">
