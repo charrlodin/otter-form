@@ -129,13 +129,6 @@ export function Hero() {
                             ></path>
                         </svg>
                     </Link>
-
-                    <Link
-                        href="/demo"
-                        className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium transition-all duration-200 bg-transparent border border-black/10 dark:border-white/10 rounded-full hover:bg-black/5 dark:hover:bg-white/5 focus:outline-none"
-                    >
-                        View Demo
-                    </Link>
                 </div>
             </div>
         </section>
